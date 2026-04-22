@@ -1,26 +1,44 @@
 # DevVault
 
-DevVault is a local CLI vault for commands, snippets, fixes, and notes.
+DevVault is my first real approach to building a Python package for pip.
 
-It is designed for developers who keep reusing the same commands, debugging fixes, setup notes, and tiny knowledge fragments, then forget where they put them because apparently human memory ships without indexing.
+It started as a personal tool I actually use to save commands, debugging fixes, small notes, and useful snippets without dumping them into random files or forgetting them later.
 
-## Features
+The goal is simple: keep a fast local CLI vault that is actually useful in real workflow, while also shaping it into something solid enough to package, maintain, and eventually push further as a more serious and possibly commercial tool.
 
-- Add entries with a type and tags
-- Normalize tags automatically
-- List, search, and select with combined filters
-- Show recent entries
-- Pin important entries
-- Copy entry content to clipboard
-- Delete specific entries or clear filtered groups
-- Backup, restore, and reset the database
-- Show vault statistics
-- Run tests against a separate test database
+## Why I built this
 
-## Installation
+I wanted a local command-line tool that could help me store things like:
 
-Create and activate a virtual environment:
+- terminal commands I reuse
+- quick debugging fixes
+- short notes
+- tagged references
+- things I normally forget and then have to rediscover
+
+Instead of throwing that stuff into scattered text files, I wanted one clean place for all of it.
+
+## What it does
+
+DevVault lets you:
+
+- add entries with a type and tags
+- list and search entries
+- select entries using combined filters
+- pin important entries
+- view recent entries
+- edit and delete entries
+- copy entry content to clipboard
+- back up and restore the database
+- reset the vault when needed
+- view quick stats
+
+## Install
+
+For local development:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install -e .
