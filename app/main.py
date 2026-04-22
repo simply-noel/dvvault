@@ -388,7 +388,7 @@ def stats():
 
 @app.command(help="Show the installed DevVault version.")
 def version():
-    console.print(f"devvault {APP_VERSION}")
+    console.print(f"dvvault {APP_VERSION}")
 
 
 def main():
