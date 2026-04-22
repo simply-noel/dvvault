@@ -1,0 +1,99 @@
+Metadata-Version: 2.4
+Name: dvvault
+Version: 0.1.0
+Summary: Local CLI vault for commands, snippets, fixes, and notes
+Author: Noel
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/simply-noel/devvault
+Project-URL: Issues, https://github.com/simply-noel/devvault/issues
+Keywords: cli,notes,vault,sqlite,productivity
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer
+Requires-Dist: rich
+Requires-Dist: pyperclip
+Dynamic: license-file
+
+# DevVault 
+
+DevVault is a local CLI vault for commands, snippets, fixes, and notes. It solves the problem of scattering useful one-liners and debugging fixes across random files by providing a fast, structured way to store and retrieve your developer workflow essentials.
+
+## Features
+
+- **Categorized Entries**: Add snippets with specific types (command, fix, note) and auto-normalized tags.
+- **Advanced Selection**: Combine filters (query, tag, type, and pins) to find exactly what you need.
+- **Workflow Tools**: 
+    - **Copy**: Send entry content directly to your clipboard.
+    - **Pin**: Keep high-frequency commands at the top.
+    - **Recent**: Quickly access your latest additions.
+- **Maintenance**: 
+    - **Backup & Restore**: Keep your database safe with timestamped copies.
+    - **Reset**: Easily wipe and recreate the vault when needed.
+    - **Stats**: Visual overview of your vault usage and entry distribution.
+- **Robustness**: Dedicated test suite that protects your real data by using a separate test database.
+
+---
+
+## Installation
+
+### Using pipx (Recommended)
+```bash
+pipx install git+https://github.com/simply-noel/devvault
+```
+
+### Using pip
+```bash
+python3 -m pip install git+https://github.com/simply-noel/devvault
+```
+
+### Local Development
+```bash
+git clone https://github.com/simply-noel/devvault
+cd devvault
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt && pip install -e .
+```
+
+---
+
+## Quick Start
+
+```bash
+dv init                                      # Initialize the database
+dv add "python -m pip install" --type command --tags "python,pip"
+dv list                                      # View all entries
+dv pin 1                                     # Pin entry #1
+dv copy 1                                    # Copy content to clipboard
+```
+
+---
+
+## Command Reference
+
+
+| Command | Description |
+| :--- | :--- |
+| `dv add` | Create entry with `--type` and `--tags` |
+| `dv select` | Filter by `--query`, `--tag`, `--type`, or `--pins` |
+| `dv recent` | Show latest entries (supports limit and filters) |
+| `dv show` | View full details of a specific ID |
+| `dv edit` | Update content or tags for an ID |
+| `dv delete` | Remove a specific entry |
+| `dv clear` | Bulk delete by tag, type, or pins |
+| `dv backup` | Create a timestamped database backup |
+| `dv stats` | View total entries, types, and tags |
+
+---
+
+## Development
+- **Tests**: `pytest -q`
+- **Build**: `python -m build`
+
+**License:** MIT  
+**GitHub:** [simply-noel/devvault](https://github.com/simply-noel/devvault)

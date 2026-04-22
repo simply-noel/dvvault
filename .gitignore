@@ -10,3 +10,6 @@ data/devvault.db-wal
 backups/devvault_backup.db
 backups/devvault_test_backup.db
 .DS_Store
+
+dist/
+*.egg-info/
