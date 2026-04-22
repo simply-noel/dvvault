@@ -1,44 +1,77 @@
-# DevVault
+# DevVault 
 
-DevVault is my first real approach to building a Python package for pip.
+DevVault is a local CLI vault for commands, snippets, fixes, and notes. It solves the problem of scattering useful one-liners and debugging fixes across random files by providing a fast, structured way to store and retrieve your developer workflow essentials.
 
-It started as a personal tool I actually use to save commands, debugging fixes, small notes, and useful snippets without dumping them into random files or forgetting them later.
+## Features
 
-The goal is simple: keep a fast local CLI vault that is actually useful in real workflow, while also shaping it into something solid enough to package, maintain, and eventually push further as a more serious and possibly commercial tool.
+- **Categorized Entries**: Add snippets with specific types (command, fix, note) and auto-normalized tags.
+- **Advanced Selection**: Combine filters (query, tag, type, and pins) to find exactly what you need.
+- **Workflow Tools**: 
+    - **Copy**: Send entry content directly to your clipboard.
+    - **Pin**: Keep high-frequency commands at the top.
+    - **Recent**: Quickly access your latest additions.
+- **Maintenance**: 
+    - **Backup & Restore**: Keep your database safe with timestamped copies.
+    - **Reset**: Easily wipe and recreate the vault when needed.
+    - **Stats**: Visual overview of your vault usage and entry distribution.
+- **Robustness**: Dedicated test suite that protects your real data by using a separate test database.
 
-## Why I built this
+---
 
-I wanted a local command-line tool that could help me store things like:
+## Installation
 
-- terminal commands I reuse
-- quick debugging fixes
-- short notes
-- tagged references
-- things I normally forget and then have to rediscover
+### Using pipx (Recommended)
+```bash
+pipx install git+https://github.com/simply-noel/devvault
+```
 
-Instead of throwing that stuff into scattered text files, I wanted one clean place for all of it.
+### Using pip
+```bash
+python3 -m pip install git+https://github.com/simply-noel/devvault
+```
 
-## What it does
+### Local Development
+```bash
+git clone https://github.com/simply-noel/devvault
+cd devvault
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt && pip install -e .
+```
 
-DevVault lets you:
+---
 
-- add entries with a type and tags
-- list and search entries
-- select entries using combined filters
-- pin important entries
-- view recent entries
-- edit and delete entries
-- copy entry content to clipboard
-- back up and restore the database
-- reset the vault when needed
-- view quick stats
-
-## Install
-
-For local development:
+## Quick Start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m pip install -e .
+dv init                                      # Initialize the database
+dv add "python -m pip install" --type command --tags "python,pip"
+dv list                                      # View all entries
+dv pin 1                                     # Pin entry #1
+dv copy 1                                    # Copy content to clipboard
+```
+
+---
+
+## Command Reference
+
+
+| Command | Description |
+| :--- | :--- |
+| `dv add` | Create entry with `--type` and `--tags` |
+| `dv select` | Filter by `--query`, `--tag`, `--type`, or `--pins` |
+| `dv recent` | Show latest entries (supports limit and filters) |
+| `dv show` | View full details of a specific ID |
+| `dv edit` | Update content or tags for an ID |
+| `dv delete` | Remove a specific entry |
+| `dv clear` | Bulk delete by tag, type, or pins |
+| `dv backup` | Create a timestamped database backup |
+| `dv stats` | View total entries, types, and tags |
+
+---
+
+## Development
+- **Tests**: `pytest -q`
+- **Build**: `python -m build`
+
+**License:** MIT  
+**GitHub:** [simply-noel/devvault](https://github.com/simply-noel/devvault)
