@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devvault"
+version = "0.1.0"
+description = "Local CLI vault for commands, snippets, fixes, and notes"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typer",
+    "rich",
+    "pyperclip",
+]
+authors = [
+    { name = "Noel" }
+]
+keywords = ["cli", "notes", "vault", "sqlite", "productivity"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourname/devvault"
+Issues = "https://github.com/yourname/devvault/issues"
+
+[project.scripts]
+dv = "app.main:main"
+
+[tool.setuptools]
+packages = ["app"]

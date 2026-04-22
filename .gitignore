@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+devvault.egg-info/
+data/devvault.db
+data/devvault_test.db
+data/devvault.db-shm
+data/devvault.db-wal
+backups/devvault_backup.db
+backups/devvault_test_backup.db
+.DS_Store
